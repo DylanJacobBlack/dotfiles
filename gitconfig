@@ -49,3 +49,6 @@
 
 [pull]
   rebase = false
+[user]
+	email = dylan.jacob.black@gmail.com
+	name = Dylan Black
