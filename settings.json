@@ -1,7 +1,6 @@
 {
     "editor.detectIndentation": false,
     "editor.formatOnPaste": true,
-    "editor.minimap.enabled": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
@@ -36,7 +35,7 @@
     {
         "**/.git": true,
         "**/.DS_Store": true,
-        "node_modules": true,
+        "node_modules": false,
         "tmp": true,
         "log": true,
         ".asset-cache": true,
@@ -75,5 +74,22 @@
     {
         "rubocop": true
     },
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "terminal.explorerKind": "external",
+    "files.autoSave": "afterDelay",
+    "css.StyleSheets": [
+      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    ],
+    "terminal.integrated.tabs.enabled": false,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[ruby]": {
+      "editor.defaultFormatter": "rebornix.ruby"
+    },
+    "debug.disassemblyView.showSourceCode": false,
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "window.zoomLevel": -1
 }
