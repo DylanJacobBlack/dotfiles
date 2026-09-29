@@ -1,95 +1,164 @@
 {
-    "editor.detectIndentation": false,
-    "editor.formatOnPaste": true,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.rulers":
-    [
-        80,
-        120
-    ],
-    "editor.renderControlCharacters": true,
-    "editor.snippetSuggestions": "top",
-    "editor.trimAutoWhitespace": true,
-    "editor.useTabStops": true,
-    "editor.fontSize": 17,
-    "editor.scrollBeyondLastLine": true,
-    "editor.showFoldingControls": "always",
-    "emmet.includeLanguages":
-    {
-        "erb": "html"
+  "editor.detectIndentation": false,
+  "editor.formatOnPaste": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.rulers": [80, 120],
+  "editor.renderControlCharacters": true,
+  "editor.snippetSuggestions": "top",
+  "editor.trimAutoWhitespace": true,
+  "editor.useTabStops": true,
+  "editor.fontSize": 17,
+  "editor.scrollBeyondLastLine": true,
+  "editor.showFoldingControls": "always",
+  "editor.formatOnSave": false,
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "explorer.confirmDelete": false,
+  "window.restoreWindows": "none",
+  "workbench.settings.editor": "json",
+  "workbench.settings.openDefaultSettings": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.iconTheme": "vscode-great-icons",
+  "files.hotExit": "off",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "node_modules": false,
+    "tmp": false,
+    "log": true,
+    ".asset-cache": true,
+    ".bundle": true,
+    ".ipynb_checkpoints": true,
+    ".pytest_cache": true,
+    ".sass-cache": true,
+    ".svn": true,
+    "__pycache__": true,
+    "_site": true,
+    "build": true,
+    "coverage": true,
+    "dist": true,
+    "public/packs": true,
+    "**/.egg-info": true
+  },
+  "files.watcherExclude": {
+    "**/audits/**": true,
+    "**/cov  erage/**": true,
+    "**/log/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/vendor/**": true
+  },
+  "git.enabled": false,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "python.formatting.provider": "yapf",
+  "workbench.startupEditor": "newUntitledFile",
+  "terminal.explorerKind": "external",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "testdouble.vscode-standard-ruby"
+  },
+  "debug.disassemblyView.showSourceCode": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.autoSave": "onFocusChange",
+  "keyboard.dispatch": "keyCode",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "rust": true
+  },
+  "git.enabled": true,
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": true,
+  "standardRuby.mode": "enableViaGemfile",
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true,
+      "useLanguageServer": true
+    }
+  },
+  "editor.largeFileOptimizations": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "strings": true
     },
-    "emmet.triggerExpansionOnTab": true,
-    "explorer.confirmDelete": false,
-    "window.restoreWindows": "none",
-    "workbench.settings.editor": "json",
-    "workbench.settings.openDefaultSettings": true,
-    "workbench.settings.useSplitJSON": true,
-    "workbench.iconTheme": "vscode-great-icons",
-    "files.hotExit": "off",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "files.exclude":
-    {
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "node_modules": false,
-        "tmp": true,
-        "log": true,
-        ".asset-cache": true,
-        ".bundle": true,
-        ".ipynb_checkpoints": true,
-        ".pytest_cache": true,
-        ".sass-cache": true,
-        ".svn": true,
-        "__pycache__": true,
-        "_site": true,
-        "build": true,
-        "coverage": true,
-        "dist": true,
-        "public/packs": true,
-        "**/.egg-info": true
+    "editor.suggest.insertMode": "replace"
+  },
+  "editor.maxTokenizationLineLength": 100000,
+  "window.zoomLevel": 1,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.stickyScroll.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.minimap.enabled": false,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "docker.containers.sortBy": "CreatedTime",
+  "window.customTitleBarVisibility": "auto",
+  "github.copilot.chat.testGeneration.instructions": [],
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "chat.tools.urls.autoApprove": {
+    "https://code.visualstudio.com": true,
+    "https://github.com/microsoft/vscode/wiki/*": true,
+    "https://www.google.com": true,
+    "https://play.google.com": true,
+    "https://doorkeeper.gitbook.io": {
+      "approveRequest": true,
+      "approveResponse": false
     },
-    "files.watcherExclude":
-    {
-        "**/audits/**": true,
-        "**/coverage/**": true,
-        "**/log/**": true,
-        "**/node_modules/**": true,
-        "**/tmp/**": true,
-        "**/vendor/**": true
-    },
-    "git.enabled": false,
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "[python]":
-    {
-        "editor.tabSize": 4
-    },
-    "python.pythonPath": "~/.pyenv/shims/python",
-    "python.formatting.provider": "yapf",
-    "ruby.lint":
-    {
-        "rubocop": true
-    },
-    "workbench.startupEditor": "newUntitledFile",
-    "terminal.explorerKind": "external",
-    "files.autoSave": "afterDelay",
-    "css.StyleSheets": [
-      "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-    ],
-    "terminal.integrated.tabs.enabled": false,
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[ruby]": {
-      "editor.defaultFormatter": "rebornix.ruby"
-    },
-    "debug.disassemblyView.showSourceCode": false,
-    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "window.zoomLevel": -1
+    "https://docs.expo.dev": true
+  },
+  "chat.viewSessions.orientation": "stacked",
+  "docker.extension.enableComposeLanguageServer": false,
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.xlsx": "default"
+  },
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  "terminal.integrated.initialHint": false,
+  "chat.tools.terminal.autoApprove": {
+    "/^cd /home/dylan/code/HeadlightSolutions/bol_router && python3 -c \"\nimport json\nd=json\\.load\\(open\\('db/new_chem_demo_seed_data\\.json'\\)\\)\nprint\\(type\\(d\\), len\\(d\\)\\)\nprint\\(json\\.dumps\\(d\\[0\\], indent=1\\)\\[:2000\\]\\)\nprint\\('---order numbers---', len\\(set\\(x\\['order_number'\\] for x in d\\)\\)\\)\nprint\\('---dropoffs---', len\\(set\\(x\\.get\\('dropoff_address',''\\) for x in d\\)\\)\\)\nprint\\(list\\(set\\(x\\.get\\('dropoff_address',''\\) for x in d\\)\\)\\[:8\\]\\)\n\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  },
 }
