@@ -1,0 +1,95 @@
+;; =============================================================================
+;;  kanata config — macOS (MacBook built-in + Magic Keyboard). Port of the Linux
+;;  config, which is itself a port of a Ferris Sweep keymap.
+;;
+;;  - macOS input source is COLEMAK, so the base layer passes letters through
+;;    untouched (kanata sends QWERTY positions; macOS turns them into Colemak).
+;;    Login/FileVault screens still type Colemak even if kanata isn't running.
+;;  - Physical Control = ⌘ (Linux Ctrl muscle memory: copy/paste/tabs).
+;;  - Right Option     = real Ctrl (terminal ^C, ^R, ...).
+;;  - Left ⌘ hold      = NAV layer.   Right ⌘ hold = SYM layer.
+;;  - Callum-style one-shot mods on the NAV (left) and SYM (right) home rows:
+;;    tap to arm for the next key, hold to use like a normal modifier; they stack.
+;;  - Do NOT also remap modifiers in System Settings > Keyboard > Modifier Keys.
+;;
+;;  Each layer is a grid matching `defsrc` 1:1; `_` = fall through to base.
+;;  Validate: kanata --cfg <file> --check
+;;  Reload:   sudo launchctl kickstart -k system/dev.kanata.kanata
+;;  Exit:     physical Control + Space + Esc (launchd restarts it; use
+;;            `sudo launchctl bootout system/dev.kanata.kanata` to stop it).
+;; =============================================================================
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+;; Physical keys (QWERTY positions — what the hardware sends).
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+;; ⌘ held down by the app-switcher key until NAV is released, so repeated taps
+;; cycle through apps like holding ⌘ and tapping Tab.
+(defvirtualkeys
+  switcher lmet
+)
+
+(defalias
+  osc (one-shot 2000 lctl)
+  osa (one-shot 2000 lalt)
+  oss (one-shot 2000 lsft)
+  osm (one-shot 2000 lmet)
+
+  nav (multi (layer-while-held nav) (on-release release-vkey switcher))
+  sym (layer-while-held sym)
+
+  app (multi (on-press press-vkey switcher) tab)
+  cw  (caps-word 2000)
+  lnst M-left
+  lnen M-right
+)
+
+;; ----------------------------- BASE ------------------------------------------
+;; Letters pass through (macOS does Colemak). Only caps and the modifiers change.
+(deflayer base
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  esc  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lmet @nav lalt           spc            lctl @sym rctl
+)
+
+;; ----------------------------- SYM layer (hold RIGHT ⌘) ----------------------
+;;   Left  top  q w e r t = ~ [ { ( <
+;;   Left  home a s d f g = ! @ & = ^
+;;   Left  bot  z x c v b = % | * _ #
+;;   Right top  y u i o p = > ) } ] `
+;;   Right home h j k l ; = $ ⌘ Shift Opt ?   (j k l are one-shot mods)
+;;   Right bot  n m , . / = XX - + \ /
+(deflayer sym
+  _    _      _      _      _      _      _      _      _      _      _    _    _    _
+  _    S-grv  lbrc   S-lbrc S-9    S-comm S-.    S-0    S-rbrc rbrc   grv  _    _    _
+  _    S-1    S-2    S-7    eql    S-6    S-4    @osm   @oss   @osa   S-/  _    _
+  _    S-5    S-\    S-8    S-min  S-3    XX     min    S-eql  \      /    _
+  _    _      _              _              _    _    _
+)
+
+;; ----------------------------- NAV layer (hold LEFT ⌘) -----------------------
+;;   Left  home a s d f = Ctrl Opt Shift ⌘ (one-shot), g = caps-word
+;;   w = app switcher (⌘Tab, keeps cycling while NAV is held), e/r = PgUp/PgDn
+;;   x/c/v = Mute/Vol-/Vol+
+;;   Right top  u/i/o = line start / Up / line end (⌘← / ⌘→), p = Del
+;;   Right home j/k/l = Left/Down/Right, ; = Bspc
+;;   m = Tab, / = Enter
+;;   Word jumps/deletes on macOS use Option: tap s, then j/l or ;.
+(deflayer nav
+  _    _      _      _      _      _      _    _      _      _      _    _    _    _
+  _    XX     @app   pgup   pgdn   XX     XX   @lnst  up     @lnen  del  _    _    _
+  _    @osc   @osa   @oss   @osm   @cw    XX   left   down   rght   bspc _    _
+  _    XX     mute   vold   volu   XX     XX   tab    XX     XX     ret  _
+  _    _      _              _              _    _    _
+)
