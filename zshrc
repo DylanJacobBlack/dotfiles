@@ -89,8 +89,11 @@ alias oldvim="vim"
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export ANDROID_HOME=$HOME/Library/Android/sdk
+  # Gradle 8.14 (RN 0.81) can't run on Android Studio's bundled JDK 25
+  export JAVA_HOME="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
 else
   export ANDROID_HOME=$HOME/Android/sdk/
+  [ -d /snap/android-studio/current/jbr ] && export JAVA_HOME="/snap/android-studio/current/jbr"
 fi
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
