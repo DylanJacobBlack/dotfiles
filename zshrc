@@ -83,10 +83,6 @@ export PATH="${HOME}/.local/bin/":$PATH
 
 export PATH="$HOME/.rbenv/shims:$PATH"
 
-alias vim="nvim"
-alias vi="nvim"
-alias oldvim="vim"
-
 if [[ "$(uname)" == "Darwin" ]]; then
   export ANDROID_HOME=$HOME/Library/Android/sdk
   # Gradle 8.14 (RN 0.81) can't run on Android Studio's bundled JDK 25
